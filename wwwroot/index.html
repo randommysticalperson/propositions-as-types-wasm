@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propositions as Types — .NET WASM</title>
+  <script type="module" src="./main.js"></script>
+  <link rel="stylesheet" href="./app.css" />
+</head>
+<body>
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Loading .NET WASM runtime…</p>
+</div>
+<header>
+  <h1>Propositions as Types</h1>
+  <p>Logical inference rules as C# types via Curry-Howard — running in your browser via <strong>.NET WASM</strong> (no Blazor)</p>
+  <div class="badges">
+    <span class="badge accent">.NET 8 WASM</span>
+    <span class="badge">OneOf&lt;A,B&gt;</span>
+    <span class="badge">yield return</span>
+    <span class="badge">JSExport / JSImport</span>
+    <span class="badge">Curry-Howard</span>
+  </div>
+</header>
+<main>
+  <div class="section-title">Curry-Howard Correspondence</div>
+  <div class="table-wrap" id="ch-table"><p class="loading-msg">Loading…</p></div>
+  <div class="section-title">Inference Rules (19 rules)</div>
+  <div class="table-wrap" id="rules-table"><p class="loading-msg">Loading…</p></div>
+  <div class="section-title">Interactive Proof Demos</div>
+  <div class="demo-grid">
+    <button class="demo-btn" data-demo="mp"><span class="btn-symbol">MP</span><span class="btn-label">Modus Ponens</span></button>
+    <button class="demo-btn" data-demo="mt"><span class="btn-symbol">MT</span><span class="btn-label">Modus Tollens</span></button>
+    <button class="demo-btn" data-demo="hs"><span class="btn-symbol">HS</span><span class="btn-label">Hypothetical Syllogism</span></button>
+    <button class="demo-btn" data-demo="conj"><span class="btn-symbol">∧-Intro / ∧-Elim</span><span class="btn-label">Conjunction</span></button>
+    <button class="demo-btn" data-demo="disj"><span class="btn-symbol">∨-Intro / ∨-Elim</span><span class="btn-label">Disjunction (OneOf)</span></button>
+    <button class="demo-btn" data-demo="iff"><span class="btn-symbol">↔-Intro</span><span class="btn-label">Biconditional</span></button>
+    <button class="demo-btn" data-demo="abs"><span class="btn-symbol">Abs</span><span class="btn-label">Absorption</span></button>
+    <button class="demo-btn" data-demo="search"><span class="btn-symbol">yield</span><span class="btn-label">Lazy Proof Search</span></button>
+  </div>
+  <div id="proof-output"><div class="placeholder">← Select a demo above to run a proof in C# WASM</div></div>
+</main>
+<footer>
+  Built with <a href="https://andrewlock.net/running-dotnet-in-the-browser-without-blazor/" target="_blank">.NET WASM (no Blazor)</a> ·
+  <a href="https://ncatlab.org/nlab/show/propositions+as+types" target="_blank">Propositions as Types (nLab)</a> ·
+  <a href="https://en.wikipedia.org/wiki/List_of_rules_of_inference" target="_blank">Rules of Inference (Wikipedia)</a> ·
+  <a href="https://github.com/mcintyre321/OneOf" target="_blank">OneOf</a>
+</footer>
+</body>
+</html>
