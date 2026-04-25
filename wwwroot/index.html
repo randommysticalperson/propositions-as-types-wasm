@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Propositions as Types — .NET WASM</title>
+  <title>Computational Trilogy — .NET WASM</title>
   <script type="module" src="./main.js"></script>
   <link rel="stylesheet" href="./app.css" />
 </head>
@@ -12,39 +12,191 @@
   <div class="spinner"></div>
   <p>Loading .NET WASM runtime…</p>
 </div>
+
 <header>
-  <h1>Propositions as Types</h1>
-  <p>Logical inference rules as C# types via Curry-Howard — running in your browser via <strong>.NET WASM</strong> (no Blazor)</p>
+  <h1>Computational Trilogy</h1>
+  <p>
+    Logic · Type Theory · Category Theory — three faces of one truth,
+    encoded in C# using <strong>Func&lt;&gt;</strong> for morphisms,
+    <strong>OneOf&lt;A,B&gt;</strong> for coproducts,
+    and <strong>yield</strong> for lazy proof enumeration.
+    Runs entirely in your browser via <strong>.NET 8 WASM</strong> (no Blazor).
+  </p>
   <div class="badges">
     <span class="badge accent">.NET 8 WASM</span>
+    <span class="badge badge-logic">Logic</span>
+    <span class="badge badge-type">Type Theory</span>
+    <span class="badge badge-cat">Category Theory</span>
     <span class="badge">OneOf&lt;A,B&gt;</span>
+    <span class="badge">Func&lt;A,B&gt;</span>
     <span class="badge">yield return</span>
     <span class="badge">JSExport / JSImport</span>
-    <span class="badge">Curry-Howard</span>
   </div>
 </header>
+
 <main>
-  <div class="section-title">Curry-Howard Correspondence</div>
-  <div class="table-wrap" id="ch-table"><p class="loading-msg">Loading…</p></div>
-  <div class="section-title">Inference Rules (19 rules)</div>
-  <div class="table-wrap" id="rules-table"><p class="loading-msg">Loading…</p></div>
-  <div class="section-title">Interactive Proof Demos</div>
-  <div class="demo-grid">
-    <button class="demo-btn" data-demo="mp"><span class="btn-symbol">MP</span><span class="btn-label">Modus Ponens</span></button>
-    <button class="demo-btn" data-demo="mt"><span class="btn-symbol">MT</span><span class="btn-label">Modus Tollens</span></button>
-    <button class="demo-btn" data-demo="hs"><span class="btn-symbol">HS</span><span class="btn-label">Hypothetical Syllogism</span></button>
-    <button class="demo-btn" data-demo="conj"><span class="btn-symbol">∧-Intro / ∧-Elim</span><span class="btn-label">Conjunction</span></button>
-    <button class="demo-btn" data-demo="disj"><span class="btn-symbol">∨-Intro / ∨-Elim</span><span class="btn-label">Disjunction (OneOf)</span></button>
-    <button class="demo-btn" data-demo="iff"><span class="btn-symbol">↔-Intro</span><span class="btn-label">Biconditional</span></button>
-    <button class="demo-btn" data-demo="abs"><span class="btn-symbol">Abs</span><span class="btn-label">Absorption</span></button>
-    <button class="demo-btn" data-demo="search"><span class="btn-symbol">yield</span><span class="btn-label">Lazy Proof Search</span></button>
+
+  <!-- Trilogy overview pillars -->
+  <div class="section-title">The Computational Trilogy (nLab Rosetta Stone)</div>
+  <div class="trilogy-overview">
+    <div class="trilogy-pillar pillar-logic">
+      <div class="pillar-icon">&#x22A2;</div>
+      <div class="pillar-name">Logic</div>
+      <ul>
+        <li>Proposition</li>
+        <li>Proof</li>
+        <li>Implication A&#x2192;B</li>
+        <li>Conjunction A&#x2227;B</li>
+        <li>Disjunction A&#x2228;B</li>
+        <li>True &#x22A4; / False &#x22A5;</li>
+        <li>Universal &#x2200;x.P(x)</li>
+        <li>Existential &#x2203;x.P(x)</li>
+        <li>Equality a=b</li>
+        <li>Modality &#x25A1;A</li>
+      </ul>
+    </div>
+    <div class="trilogy-arrow">&#x27FA;</div>
+    <div class="trilogy-pillar pillar-type">
+      <div class="pillar-icon">&#x03BB;</div>
+      <div class="pillar-name">Type Theory</div>
+      <ul>
+        <li>Type</li>
+        <li>Term / Program</li>
+        <li>Function type A&#x2192;B</li>
+        <li>Product type A&#xD7;B</li>
+        <li>Sum type A+B</li>
+        <li>Unit / Empty type</li>
+        <li>Dependent product &#x03A0;</li>
+        <li>Dependent sum &#x03A3;</li>
+        <li>Identity type Id_A(a,b)</li>
+        <li>Monad M(A)</li>
+      </ul>
+    </div>
+    <div class="trilogy-arrow">&#x27FA;</div>
+    <div class="trilogy-pillar pillar-cat">
+      <div class="pillar-icon">&#x2218;</div>
+      <div class="pillar-name">Category Theory</div>
+      <ul>
+        <li>Object</li>
+        <li>Generalized element</li>
+        <li>Morphism (Func&lt;A,B&gt;)</li>
+        <li>Product object</li>
+        <li>Coproduct (OneOf)</li>
+        <li>Terminal / Initial object</li>
+        <li>Dependent product</li>
+        <li>Dependent sum</li>
+        <li>Path space object</li>
+        <li>Closure operator</li>
+      </ul>
+    </div>
   </div>
-  <div id="proof-output"><div class="placeholder">← Select a demo above to run a proof in C# WASM</div></div>
+
+  <!-- Full Rosetta Stone table -->
+  <div class="section-title">Full Rosetta Stone — C# Encoding</div>
+  <div class="table-wrap" id="ch-table"><p class="loading-msg">Loading&#x2026;</p></div>
+
+  <!-- All inference rules -->
+  <div class="section-title">All Inference Rules (Logic + Type Theory + Category Theory)</div>
+  <div class="table-wrap" id="rules-table"><p class="loading-msg">Loading&#x2026;</p></div>
+
+  <!-- Logic demos -->
+  <div class="section-title">
+    <span class="badge badge-logic">Logic</span>
+    Propositional Inference Demos
+  </div>
+  <div class="demo-grid">
+    <button class="demo-btn" data-demo="mp">
+      <span class="btn-symbol">MP</span>
+      <span class="btn-label">Modus Ponens</span>
+    </button>
+    <button class="demo-btn" data-demo="mt">
+      <span class="btn-symbol">MT</span>
+      <span class="btn-label">Modus Tollens</span>
+    </button>
+    <button class="demo-btn" data-demo="hs">
+      <span class="btn-symbol">HS</span>
+      <span class="btn-label">Hypothetical Syllogism</span>
+    </button>
+    <button class="demo-btn" data-demo="conj">
+      <span class="btn-symbol">&#x2227;-Intro/Elim</span>
+      <span class="btn-label">Conjunction</span>
+    </button>
+    <button class="demo-btn" data-demo="disj">
+      <span class="btn-symbol">&#x2228;-Intro/Elim</span>
+      <span class="btn-label">Disjunction (OneOf)</span>
+    </button>
+    <button class="demo-btn" data-demo="iff">
+      <span class="btn-symbol">&#x2194;-Intro</span>
+      <span class="btn-label">Biconditional</span>
+    </button>
+    <button class="demo-btn" data-demo="abs">
+      <span class="btn-symbol">Abs</span>
+      <span class="btn-label">Absorption</span>
+    </button>
+    <button class="demo-btn" data-demo="search">
+      <span class="btn-symbol">yield</span>
+      <span class="btn-label">Lazy Proof Search</span>
+    </button>
+  </div>
+
+  <!-- Type Theory demos -->
+  <div class="section-title">
+    <span class="badge badge-type">Type Theory</span>
+    Dependent Type Demos (&#x03A3;, &#x03A0;, Id)
+  </div>
+  <div class="demo-grid">
+    <button class="demo-btn demo-type" data-demo="sigma">
+      <span class="btn-symbol">&#x03A3;</span>
+      <span class="btn-label">Dependent Sum (&#x2203;)</span>
+    </button>
+    <button class="demo-btn demo-type" data-demo="pi">
+      <span class="btn-symbol">&#x03A0;</span>
+      <span class="btn-label">Dependent Product (&#x2200;)</span>
+    </button>
+    <button class="demo-btn demo-type" data-demo="idtype">
+      <span class="btn-symbol">Id</span>
+      <span class="btn-label">Identity Type (refl / J)</span>
+    </button>
+  </div>
+
+  <!-- Category Theory demos -->
+  <div class="section-title">
+    <span class="badge badge-cat">Category Theory</span>
+    Categorical Structure Demos (Func&lt;&gt; morphisms)
+  </div>
+  <div class="demo-grid">
+    <button class="demo-btn demo-cat" data-demo="compose">
+      <span class="btn-symbol">&#x2218;</span>
+      <span class="btn-label">Composition &amp; &#x03BB; (Func&lt;&gt;)</span>
+    </button>
+    <button class="demo-btn demo-cat" data-demo="functor">
+      <span class="btn-symbol">F(f)</span>
+      <span class="btn-label">Functor &amp; NatTransform</span>
+    </button>
+    <button class="demo-btn demo-cat" data-demo="adjunction">
+      <span class="btn-symbol">L&#x22A3;R</span>
+      <span class="btn-label">Adjunction (unit/counit)</span>
+    </button>
+    <button class="demo-btn demo-cat" data-demo="monad">
+      <span class="btn-symbol">M(A)</span>
+      <span class="btn-label">Monad (&#x25A1;-modal type)</span>
+    </button>
+  </div>
+
+  <!-- Output area -->
+  <div id="proof-output">
+    <div class="placeholder">&#x2190; Select a demo above to run a proof in C# WASM</div>
+  </div>
+
 </main>
+
 <footer>
-  Built with <a href="https://andrewlock.net/running-dotnet-in-the-browser-without-blazor/" target="_blank">.NET WASM (no Blazor)</a> ·
-  <a href="https://ncatlab.org/nlab/show/propositions+as+types" target="_blank">Propositions as Types (nLab)</a> ·
-  <a href="https://en.wikipedia.org/wiki/List_of_rules_of_inference" target="_blank">Rules of Inference (Wikipedia)</a> ·
+  Built with
+  <a href="https://andrewlock.net/running-dotnet-in-the-browser-without-blazor/" target="_blank">.NET WASM (no Blazor)</a> &#xB7;
+  <a href="https://ncatlab.org/nlab/show/computational+trilogy" target="_blank">Computational Trilogy (nLab)</a> &#xB7;
+  <a href="https://ncatlab.org/nlab/show/propositions+as+types" target="_blank">Propositions as Types (nLab)</a> &#xB7;
+  <a href="https://ncatlab.org/nlab/show/type+theory" target="_blank">Type Theory (nLab)</a> &#xB7;
+  <a href="https://en.wikipedia.org/wiki/List_of_rules_of_inference" target="_blank">Rules of Inference (Wikipedia)</a> &#xB7;
   <a href="https://github.com/mcintyre321/OneOf" target="_blank">OneOf</a>
 </footer>
 </body>

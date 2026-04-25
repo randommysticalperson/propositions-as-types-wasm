@@ -154,3 +154,45 @@ footer {
 }
 footer a { color: var(--accent); text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+
+/* ── Computational Trilogy additions ─────────────────────────────────────── */
+:root {
+  --logic-color:  #f59e0b;
+  --type-color:   #7c6af7;
+  --cat-color:    #34d399;
+}
+.badge-logic { background: rgba(245,158,11,.18); color: var(--logic-color); border-color: var(--logic-color); }
+.badge-type  { background: rgba(124,106,247,.18); color: var(--type-color);  border-color: var(--type-color); }
+.badge-cat   { background: rgba(52,211,153,.18);  color: var(--cat-color);   border-color: var(--cat-color); }
+
+.trilogy-overview {
+  display: flex; gap: 1rem; align-items: flex-start; margin: 1.5rem 0; flex-wrap: wrap;
+}
+.trilogy-pillar {
+  flex: 1; min-width: 180px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1rem;
+}
+.pillar-logic { border-top: 3px solid var(--logic-color); }
+.pillar-type  { border-top: 3px solid var(--type-color); }
+.pillar-cat   { border-top: 3px solid var(--cat-color); }
+.pillar-icon  { font-size: 2rem; text-align: center; margin-bottom: .4rem; opacity: .8; }
+.pillar-name  { font-weight: 700; font-size: 1rem; text-align: center; margin-bottom: .8rem; letter-spacing: .04em; }
+.pillar-logic .pillar-name { color: var(--logic-color); }
+.pillar-type  .pillar-name { color: var(--type-color); }
+.pillar-cat   .pillar-name { color: var(--cat-color); }
+.trilogy-pillar ul { list-style: none; font-size: .82rem; color: var(--muted); line-height: 1.8; }
+.trilogy-pillar ul li::before { content: "• "; color: var(--border); }
+.trilogy-arrow { font-size: 2rem; align-self: center; color: var(--muted); flex: 0; padding: 0 .5rem; }
+
+.trilogy-label {
+  font-size: .8rem; color: var(--muted); background: var(--surface2);
+  border-left: 3px solid var(--accent); padding: .4rem .8rem;
+  margin: .5rem 0; border-radius: 0 var(--radius) var(--radius) 0;
+}
+.demo-btn.demo-type { border-color: var(--type-color); }
+.demo-btn.demo-type:hover { background: rgba(124,106,247,.15); border-color: var(--type-color); }
+.demo-btn.demo-type .btn-symbol { color: var(--type-color); }
+.demo-btn.demo-cat { border-color: var(--cat-color); }
+.demo-btn.demo-cat:hover { background: rgba(52,211,153,.12); border-color: var(--cat-color); }
+.demo-btn.demo-cat .btn-symbol { color: var(--cat-color); }
+.section-title .badge { vertical-align: middle; margin-right: .5rem; font-size: .7rem; }
